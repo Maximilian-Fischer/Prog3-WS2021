@@ -14,10 +14,11 @@ class JsonParser : public ParserIf {
     bool isValidColumn(rapidjson::Document const &document);
     bool isValidItem(rapidjson::Document const &document);
 
+    std::string jsonValueToString(rapidjson::Value const &json);
+
     rapidjson::Value getJsonValueFromModel(Prog3::Core::Model::Item const &item, rapidjson::Document::AllocatorType &allocator);
     rapidjson::Value getJsonValueFromModel(Prog3::Core::Model::Column const &column, rapidjson::Document::AllocatorType &allocator);
-
-    std::string jsonValueToString(rapidjson::Value const &json);
+    rapidjson::Value getJsonValueFromModel(Prog3::Core::Model::Board &board, rapidjson::Document::AllocatorType &allocator);
 
   public:
     JsonParser(){};

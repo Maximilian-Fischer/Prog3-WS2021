@@ -19,7 +19,11 @@ class BoardRepository : public RepositoryIf {
         return id != INVALID_ID;
     }
 
-    static int queryCallback(void *data, int numberOfColumns, char **fieldValues, char **columnNames);
+    static Prog3::Core::Model::Item getItemFromCallback(char **fieldValues, int startIndex);
+    static Prog3::Core::Model::Column getColumnFromCallback(char **fieldValues, int startIndex);
+
+    static int queryColumnsCallback(void *data, int numberOfColumns, char **fieldValues, char **columnNames);
+    static int queryItemsCallback(void *data, int numberOfColumns, char **fieldValues, char **columnNames);
 
   public:
     BoardRepository();
